@@ -1,0 +1,51 @@
+{% load static %}
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="{% static 'crm/style.css' %}">
+</head>
+<body>
+
+<div id="top">
+<h1>Low Effort CRM</h1>
+</div>
+
+<div id="menu">
+<a href="index"><h2>Register Panel</h2></a>
+<h2>Show:</h2>
+<ul>
+<li><a href="usersManagement">Users</a><br></li>
+<li><a href="companiesManagement">Firms</a><br></li>
+<li><a href="contactManagement">Contacts</a><br></li>
+<li><a href="notesManagement">Notes</a><br></li>
+<li><a href="rulesManagement">Rules</a><br></li>
+<li><a href="tradesManagement">Trades</a><br></li>
+</ul>
+<h2>Add:</h2>
+<ul>
+<li><a href="userAddPanel">User</a><br></li>
+<li><a href="companyAddPanel">Firm</a><br></li>
+<li><a href="contactAddPanel">Contact</a><br></li>
+<li><a href="noteAddPanel">Note</a><br></li>
+</ul>
+<h2><a href="admin">Admin Panel</a><br></h2>
+</div>
+
+<div id="content">
+{% if trades_list %}
+	<table border = "1">
+	<th>Branża</th>
+    {% for trade in trades_list %}
+	<tr>
+        <td>{{ trade.name }}</td>
+    </tr>
+	{% endfor %}
+	</table>
+{% else %}
+    <p>Brak dodanych branż.</p>
+{% endif %}
+</div>
+
+</body>
+</html>
